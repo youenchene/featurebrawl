@@ -1,8 +1,11 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
+import VueCookie from 'vue-cookie';
 import featmgtService from '../service/featuremanagement';
 
 Vue.use(Vuex);
+Vue.use(VueCookie);
+
 
 const state = {
   features: [],
@@ -43,6 +46,7 @@ const actions = {
 
 const mutations = {
   FILL_ALL_FEATURE(state, features) {
+    features.forEach((f) => { if (Vue.cookie.get(f.id) === 'v') { f.voted = true; } });
     state.features = features;
   },
   NEW_FEATURE(state, feature) {
@@ -61,6 +65,7 @@ const mutations = {
   VOTE_FEATURE(state, value) {
     value.feature.score += value.note;
     value.feature.voted = true;
+    Vue.cookie.set(value.feature.id, 'v', 60);
   },
 };
 
