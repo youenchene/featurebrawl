@@ -1,0 +1,98 @@
+.sui-a-label {
+  display: inline-block;
+  vertical-align: middle;
+  padding: .4em .8em;
+  margin-top: -.4em;
+  font-size: $sui-font-size-xs;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: $sui-border-radius-rounded;
+  font-family: $sui-font-family-secondary;
+
+  @include suiLabelColor($color-as-text: $sui-color-text-light);
+
+  html body &.as--text {
+    box-shadow: none;
+    background: none;
+    padding: 0;
+  }
+
+  &.as--start {
+    margin-right: .5em;
+  }
+
+  &.as--between {
+    margin-left: .5em;
+    margin-right: .5em;
+  }
+
+  &.as--end {
+    margin-left: .5em;
+  }
+
+  // -------------------------
+  //    Colors
+  // -------------------------
+  &.as--primary {
+    @include suiLabelColor(
+      $background: $sui-color-primary
+    );
+  }
+
+  &.as--secondary {
+    @include suiLabelColor(
+      $color: $sui-color-primary,
+      $background: white,
+      $border-color: $sui-color-primary,
+      $color-as-text: $sui-color-text
+    );
+  }
+
+  &.as--success {
+    @include suiLabelColor(
+      $background: $sui-color-success,
+      $color-as-text: $sui-color-success-text
+    );
+  }
+
+  &.as--warning {
+    @include suiLabelColor(
+      $background: $sui-color-warning,
+      $color-as-text: $sui-color-warning-text
+    );
+  }
+
+  &.as--danger {
+    @include suiLabelColor(
+      $background: $sui-color-danger,
+      $color-as-text: $sui-color-danger-text
+    );
+  }
+
+  // -------------------------
+  //    Sizes
+  // -------------------------
+  &.as--xs {
+    padding: $sui-space-xxs/2 $sui-space-xxs;
+    font-size: $sui-font-size-xxs;
+  }
+
+  &.as--sm {
+    font-size: $sui-font-size-xxs;
+  }
+
+  &.as--lg {
+    font-size: $sui-font-size-sm;
+    font-weight: 600;
+    text-transform: none;
+  }
+
+  &.as--xl {
+    font-size: $sui-font-size-md;
+    font-weight: 600;
+    text-transform: none;
+  }
+}

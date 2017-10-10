@@ -1,0 +1,31 @@
+.sui-m-form-group {
+  display: flex;
+  flex-flow: column wrap;
+
+  & + & {
+    margin-top: $sui-space-xl;
+  }
+
+  // -------------------------
+  // Content
+  // -------------------------
+  html body & > * {
+    margin: $sui-space-sm 0 0 0;
+
+    &:first-child {
+      margin: 0;
+    }
+  }
+
+  // Include without prefix for default modifier
+  @include suiFormGroupModifiers();
+
+  // Loop over media query modifiers to generate
+  // your modifiers for each breakpoints
+  @each $breakpoint in $sui-breakpoint-modifiers {
+    @include suiMediaMin(nth($breakpoint, 1)) {
+      @include suiFormGroupModifiers(nth($breakpoint, 2));
+    }
+  }
+
+}

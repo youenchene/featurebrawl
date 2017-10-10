@@ -1,0 +1,68 @@
+body {
+  font-family: $sui-font-family-primary;
+  color: $sui-color-text;
+  line-height: $sui-line-height;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: $sui-space-lg 0;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: $sui-font-size-xxl;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: $sui-font-size-xl;
+}
+
+h3 {
+  font-weight: normal;
+  font-size: $sui-font-size-lg;
+}
+
+h4 {
+  font-weight: 300;
+  font-size: $sui-font-size-ml;
+}
+
+h5 {
+  font-weight: bold;
+  font-size: $sui-font-size-md;
+  margin: $sui-space-md 0;
+}
+
+h6 {
+  font-weight: 600;
+  font-size: $sui-font-size-md;
+  font-family: $sui-font-family-secondary;
+  margin: $sui-space-md 0;
+}
+
+p,
+li {
+  margin-top: 0;
+  font-family: $sui-font-family-secondary;
+}
+
+a {
+  cursor: pointer;
+  color: $sui-color-primary;
+  outline: none;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}

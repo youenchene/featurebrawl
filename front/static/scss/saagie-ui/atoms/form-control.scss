@@ -1,0 +1,94 @@
+.sui-a-form-control {
+  display: block;
+  width: 100%;
+  padding: $sui-space-xs $sui-space-sm;
+  margin: 0;
+  font-weight: normal;
+  font-size: $sui-font-size-md;
+  line-height: $sui-line-height;
+  vertical-align: middle;
+  background-color: white;
+  border: $sui-size-border solid $sui-color-border;
+  border-radius: $sui-border-radius-md;
+  box-shadow: none;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+  &.as--inline {
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &:focus {
+    border-color: $sui-color-primary;
+    outline: 0;
+    box-shadow: inset 0 rem(1) rem(1) rgba(0, 0, 0, .075), 0 0 rem(8) rgba($sui-color-border, .6);
+  }
+
+  // Placeholder
+  &::-moz-placeholder {
+    color: $sui-color-text-light;
+  }
+
+  &:-ms-input-placeholder {
+    color: $sui-color-text-light;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $sui-color-text-light;
+    opacity: 1; // Override Firefox's unusual default opacity
+  }
+
+  // Textarea
+  @at-root textarea#{&} {
+    height: auto;
+    max-width: 100%;
+  }
+
+  @at-root textarea#{&}:not(.as--inline) {
+    min-width: 100%;
+  }
+
+  // Select
+  @at-root select#{&}:not([multiple]) {
+    overflow: hidden;
+    padding-right: $sui-space-md + $sui-size-xxs;
+    min-width: $sui-size-xxs + $sui-space-md * 2;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline fill='#{$sui-color-primary}' points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>");
+    background-position: right .6rem center;
+    background-repeat: no-repeat;
+    background-size: .8em;
+  }
+
+  @at-root select#{&}[multiple] {
+    overflow: auto;
+  }
+
+  // Readonly
+  // -------------------------
+  &[readonly],
+  &.as--readonly {
+    cursor: default;
+    color: $sui-color-text-light;
+    border-color: darken($sui-color-border, 5%);
+    background-color: $sui-color-base-light;
+    background-image: none !important;
+    opacity: 1; // iOS fix for unreadable readonly content
+    box-shadow: none;
+  }
+
+  // Disabled
+  // -------------------------
+  &[disabled],
+  &.as--disabled {
+    cursor: not-allowed;
+    color: $sui-color-text-light;
+    border-color: darken($sui-color-border, 5%);
+    background-color: $sui-color-base-light;
+    background-image: none !important;
+    opacity: 1; // iOS fix for unreadable disabled content
+    box-shadow: none;
+  }
+}

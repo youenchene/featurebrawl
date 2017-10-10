@@ -1,9 +1,8 @@
 package com.saagie.tooling.featurebrawl.infra.adapters.secondary.dto
 
-import com.saagie.tooling.featurebrawl.model.Feature
-import com.saagie.tooling.featurebrawl.model.Vote
-import org.bson.types.ObjectId
+import com.saagie.tooling.featurebrawl.domain.Feature
 import org.litote.kmongo.MongoId
+
 
 data class FeatureMongoRecord(@MongoId val id: String?,
                               val name: String ="",

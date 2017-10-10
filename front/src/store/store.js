@@ -22,6 +22,7 @@ const actions = {
     featmgtService.addFeature(feature).then(
       (data) => {
         const newfeat = data;
+        console.log(data);
         newfeat.new = true;
         commit('NEW_FEATURE', feature);
         commit('CLEAR_NEWFEATURE_FORM');
@@ -30,6 +31,13 @@ const actions = {
   },
   fillAllFeatures({ commit }) {
     featmgtService.getAllFeatures().then((data) => { commit('FILL_ALL_FEATURE', data); }).catch();
+  },
+  vote({ commit }, vote) {
+    if (vote.note < 0) {
+      featmgtService.vote(vote.feature.id, -1).then(() => { commit('VOTE_FEATURE', { feature: vote.feature, note: -1 }); }).catch();
+    } else if (vote.note > 0) {
+      featmgtService.vote(vote.feature.id, 1).then(() => { commit('VOTE_FEATURE', { feature: vote.feature, note: 1 }); }).catch();
+    }
   },
 };
 
@@ -49,6 +57,10 @@ const mutations = {
   },
   SUBMIT_NEWFEATURE_FORM(state) {
     state.component.NewFeature.submitted = true;
+  },
+  VOTE_FEATURE(state, value) {
+    value.feature.score += value.note;
+    value.feature.voted = true;
   },
 };
 

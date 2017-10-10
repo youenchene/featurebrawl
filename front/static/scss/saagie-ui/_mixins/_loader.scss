@@ -1,0 +1,21 @@
+@mixin suiLoader () {
+  &::after {
+    content: "";
+    animation: sui-loader--spin 500ms infinite linear;
+    font-size: inherit;
+    border: rem(2) solid;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    display: block;
+    height: 1em;
+    width: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: .5em;
+    margin-left: -.5em;
+    margin-top: -.5em;
+    z-index: 1;
+    @content;
+  }
+}

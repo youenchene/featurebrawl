@@ -1,0 +1,23 @@
+$sui-brand-primary: #e52728 !default;
+$sui-brand-secondary: #263d5c !default;
+
+$sui-color-primary: #0070f3 !default;
+
+$sui-color-text: #263d5c !default;
+$sui-color-text-light: #5a789f !default;
+$sui-color-border: #d9dbe3 !default;
+
+$sui-color-base-lighter: #fafbfe !default;
+$sui-color-base-light: #e7eff9 !default;
+$sui-color-base-medium-light: #b8c9e1 !default;
+$sui-color-base-medium: #8098b7 !default;
+$sui-color-base-medium-dark: #587193 !default;
+$sui-color-base-dark: #263d5c !default;
+$sui-color-base-darker: #202f47 !default;
+
+$sui-color-success: #4caf50 !default;
+$sui-color-success-text: darken($sui-color-success, 5%) !default;
+$sui-color-warning: #ffb819 !default;
+$sui-color-warning-text: adjust_hue($sui-color-warning, -10) !default;
+$sui-color-danger: #e52728 !default;
+$sui-color-danger-text: darken($sui-color-danger, 5%) !default;

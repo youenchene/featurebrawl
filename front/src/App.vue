@@ -3,7 +3,13 @@
     <h2>Submit a new feature</h2>
     <new-feature></new-feature>
     <h2>Submitted Features</h2>
-    <feature v-for="feat in allFeatures" :key="feat.id" :feature="feat" class="as--gutter-10"></feature>
+    <div class="sui-o-grid as--stretch">
+
+      <div class="sui-o-grid__item as--1_2@md as--1_3@xl" v-for="(value, key) in sortedFeatures">
+        <feature :key="key" :feature="value"></feature>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -22,6 +28,9 @@
     },
     computed: {
       ...mapGetters(['allFeatures']),
+      sortedFeatures() {
+        return this.allFeatures.sort((a, b) => a.score < b.score);
+      },
     },
     methods: {
       ...mapActions(['fillAllFeatures']),

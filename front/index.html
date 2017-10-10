@@ -10,32 +10,32 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./static/assets/favicon/favicon-16x16.png">
   <link rel="icon" type="image/x-icon" href="./static/assets/favicon/favicon.ico">
   <link rel="mask-icon" href="./static/assets/favicon/safari-pinned-tab.svg" color="#e62e34">
-  <link rel="stylesheet" href="./static/css/app.css">
+  <link rel="stylesheet" href="./static/css/saagie-ui.css">
   <!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
 
 </head>
-<body>
-  <div class="l-navbar">
-    <a href="#" class="l-navbar__logo">
-      <img src="./static/assets/images/saagie-logo.svg" alt="">
-    </a>
-    <div class="l-navbar__title">
-      <h1>Feature Brawl</h1>
+<body id="sui-root">
+  <div class="sui-t-app-layout">
+    <div class="sui-o-topbar">
+      <a href="#" class="sui-o-topbar__logo">
+        <img src="./static/assets/images/saagie-logo.svg" alt="Saagie" />
+      </a>
+      <h1 class="sui-o-topbar__title">
+        Feature Brawl
+      </h1>
+    </div>
+    <div class="sui-t-app-layout__content">
+      <div  class="sui-t-container as--gutter-xl@md">
+        <p>
+          This a feature request management. You add a feature request and vote for a feature. You can also assign customer or a theme to a feature request.
+        </p>
+
+        <hr>
+
+        <div id="app"></div>
+      </div>
     </div>
   </div>
-  <div class="l-screen">
-
-    <div class="l-container">
-      <p>
-        This a feature request management. You add a feature request and vote for a feature. You can also assign customer or a theme to a feature request.
-      </p>
-
-      <hr>
-
-      <div id="app"></div>
-
-    </div>
-
   <!-- built files will be auto injected -->
 </body>
 </html>

@@ -1,6 +1,6 @@
 package com.saagie.tooling.featurebrawl.infra.adapters.secondary.dto
 
-import com.saagie.tooling.featurebrawl.model.Vote
+import com.saagie.tooling.featurebrawl.domain.Vote
 
 data class VoteMongoRecord(
         val note:Int=1,

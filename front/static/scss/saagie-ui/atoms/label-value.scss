@@ -1,0 +1,20 @@
+.sui-a-label-value {
+
+  & + & {
+    margin-top: $sui-space-sm;
+  }
+
+  &__label {
+    font-size: $sui-font-size-sm;
+    color: $sui-color-text-light;
+  }
+
+  &__value {
+    font-size: $sui-font-size-ms;
+  }
+
+  &.as--label-uppercase &__label {
+    font-size: $sui-font-size-xs;
+    text-transform: uppercase;
+  }
+}

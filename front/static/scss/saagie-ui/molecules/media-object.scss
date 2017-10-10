@@ -1,0 +1,36 @@
+.sui-m-media-object {
+  display: flex;
+  align-items: flex-start;
+
+  & + & {
+    margin-top: $sui-space-xl;
+  }
+
+  &.as--media-center {
+    align-items: center;
+  }
+
+  &.as--media-bottom {
+    align-items: flex-end;
+  }
+
+  &__image {
+    flex: none;
+  }
+
+  &__image + &__content {
+    margin-left: $sui-space-md;
+  }
+
+  &__content {
+    min-width: 0;
+
+    & > :first-child {
+      margin-top: 0;
+    }
+
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

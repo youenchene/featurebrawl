@@ -1,0 +1,169 @@
+.sui-a-button {
+  @include suiButtonBase ();
+
+  @include suiButtonHover {
+    box-shadow: $sui-box-shadow;
+  }
+
+  html body &.as--square {
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+  }
+
+  &.as--block {
+    display: block;
+    width: 100%;
+  }
+
+  &.as--rounded {
+    border-radius: $sui-border-radius-rounded;
+  }
+
+  // -------------------------
+  //    Colors
+  // -------------------------
+
+  // Default color
+  @include suiButtonColor($color-contextual: $sui-color-text-light);
+
+  &.as--link {
+    @include suiButtonColor($color: $sui-color-primary, $background: transparent);
+  }
+
+  &.as--link-alt {
+    @include suiButtonColor($color: $sui-color-text, $background: transparent);
+  }
+
+  &.as--link,
+  &.as--link-alt {
+    text-decoration: underline;
+
+    @include suiButtonHover() {
+      text-decoration: none;
+      box-shadow: none;
+    }
+  }
+
+  &.as--primary {
+    @include suiButtonColor(
+      $background: $sui-color-primary
+    );
+  }
+
+  &.as--secondary {
+    @include suiButtonColor(
+      $background: white,
+      $border-color: $sui-color-primary,
+      $color: $sui-color-primary,
+      $background-hover: $sui-color-primary,
+      $color-hover: white,
+      $color-contextual: $sui-color-text
+    );
+  }
+
+  &.as--success {
+    @include suiButtonColor(
+      $background: $sui-color-success,
+      $color-contextual: $sui-color-success-text
+    );
+  }
+
+  &.as--warning {
+    @include suiButtonColor(
+      $background: $sui-color-warning,
+      $color-contextual: $sui-color-warning-text
+    );
+  }
+
+  &.as--danger {
+    @include suiButtonColor(
+      $background: $sui-color-danger,
+      $color-contextual: $sui-color-danger-text
+    );
+  }
+
+  // -------------------------
+  //    Sizes
+  // -------------------------
+  &.as--xs {
+    @include suiButtonSize($sui-space-xxs/2, $sui-space-xxs, $sui-font-size-xs);
+  }
+
+  &.as--sm {
+    @include suiButtonSize($sui-space-xxs, $sui-space-sm, $sui-font-size-sm);
+  }
+
+  // Default size
+  @include suiButtonSize($sui-space-xs, $sui-space-md, $sui-font-size-md);
+
+  &.as--lg {
+    font-weight: 300;
+
+    @include suiButtonSize($sui-space-xs, $sui-space-lg, $sui-font-size-lg);
+  }
+
+  &.as--xl {
+    font-weight: 300;
+
+    @include suiButtonSize($sui-space-sm, $sui-space-lg, $sui-font-size-xl);
+  }
+
+  // -------------------------
+  //    Loading
+  // -------------------------
+  html body &.as--loading {
+    @include suiButtonLoading();
+  }
+
+  // -------------------------
+  //    Contextual
+  // -------------------------
+  html body &.as--contextual {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-weight: 600;
+    padding: $sui-space-xxs $sui-space-sm;
+    line-height: 1rem;
+    font-family: $sui-font-family-secondary;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -$sui-space-sm;
+      left: -$sui-space-xxs;
+      right: -$sui-space-xxs;
+      bottom: -$sui-space-sm;
+    }
+  }
+
+  // -------------------------
+  //    Disabled
+  // -------------------------
+  @include suiButtonDisabled() {
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+    color: rgba(0, 0, 0, .2) !important;
+    transform: translate3d(0, 0, 0); // Fix: Rendering disabled buttons on Chrome for Android (bug)
+
+    &:not(.as--contextual):not(.as--link):not(.as--link-alt) {
+      background:
+        $sui-color-base-lighter repeating-linear-gradient(
+          -45deg,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0) rem(2),
+          rgba(0, 0, 0, 0.02) rem(2),
+          rgba(0, 0, 0, 0.02) rem(4)
+        ) !important;
+      border-color: rgba(0, 0, 0, .1) !important;
+    }
+
+    &.as--contextual,
+    &.as--link,
+    &.as--link-alt {
+      text-decoration: line-through !important;
+    }
+  }
+}

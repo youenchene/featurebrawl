@@ -1,0 +1,14 @@
+@mixin suiLabelColor (
+  $background: $sui-color-base-light,
+  $border-color: $background,
+  $color: contrast($background),
+  $color-as-text: $background
+) {
+  color: $color;
+  background: $background;
+  box-shadow: inset 0 0 0 $sui-size-border $border-color;
+
+  &.as--text {
+    color: $color-as-text;
+  }
+}

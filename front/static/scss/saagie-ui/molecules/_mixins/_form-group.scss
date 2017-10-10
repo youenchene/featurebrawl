@@ -1,0 +1,23 @@
+@mixin suiFormGroupModifiers($suffix: '') {
+  &.as--vertical#{ $suffix } {
+    display: flex;
+    align-items: stretch;
+    flex-flow: column wrap;
+    margin-left: 0;
+
+    html body & > * {
+      margin: $sui-space-sm 0 0 0;
+    }
+  }
+
+  &.as--horizontal#{ $suffix } {
+    flex-direction: row;
+    align-items: center;
+    margin-left: -$sui-space-md;
+
+    html body & > * {
+      width: auto;
+      margin: 0 0 0 $sui-space-md;
+    }
+  }
+}

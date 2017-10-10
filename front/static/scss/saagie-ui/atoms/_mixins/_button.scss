@@ -1,0 +1,107 @@
+@mixin suiButtonHover() {
+  a:hover &,
+  button:hover &,
+  &:hover,
+  a:focus &,
+  button:focus &,
+  &:focus,
+  &.focus,
+  a:active &,
+  button:active &,
+  &:active,
+  &.active {
+    @content;
+  }
+}
+
+@mixin suiButtonDisabled() {
+  [disabled] &,
+  .as--disabled &,
+  &.as--disabled,
+  &[disabled] {
+    @content;
+  }
+}
+
+@mixin suiButtonColor(
+  $background: $sui-color-base-light,
+  $color: contrast($background),
+  $border-color: darken($background, 5%),
+  $color-hover: $color,
+  $background-hover: darken($background, 5%),
+  $border-color-hover: darken($border-color, 20%),
+  $color-contextual: $background,
+  $color-contextual-hover: darken($color-contextual, 15%)
+) {
+  color: $color;
+  background-color: $background;
+  border-color: $border-color;
+
+  @include suiButtonHover() {
+    color: $color-hover;
+    background-color: $background-hover;
+    border-color: $border-color-hover;
+  }
+
+  html body &.as--contextual {
+    color: $color-contextual;
+
+    @include suiButtonHover() {
+      color: $color-contextual-hover;
+    }
+
+    &.as--loading::after {
+      color: $color-contextual;
+    }
+  }
+
+  html body &.as--loading::after {
+    color: $color;
+  }
+}
+
+@mixin suiButtonSize($padding-vertical, $padding-horizontal, $font-size: $sui-font-size-md) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+
+  html body &.as--square {
+    height: $padding-vertical * 2 + $font-size * $sui-line-height + rem(2);
+    width: $padding-vertical * 2 + $font-size * $sui-line-height + rem(2);
+  }
+}
+
+@mixin suiButtonBase() {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  font-weight: normal;
+  border: $sui-size-border solid transparent;
+  border-radius: $sui-border-radius-md;
+  white-space: normal;
+  transition: .2s;
+  user-select: none;
+  min-width: 1em;
+  outline: none;
+  text-decoration: none;
+
+  &:active {
+    outline: 0;
+    background-image: none;
+  }
+}
+
+@mixin suiButtonLoading {
+  pointer-events: none;
+  position: relative;
+  cursor: progress;
+  color: transparent !important;
+
+  @include suiLoader();
+}

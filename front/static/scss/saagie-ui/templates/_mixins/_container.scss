@@ -1,0 +1,76 @@
+@mixin suiContainerGutters($size) {
+  padding: $size;
+}
+
+@mixin suiContainerGuttersVertical($size) {
+  padding-top: $size;
+  padding-bottom: $size;
+}
+
+@mixin suiContainerGuttersHorizontal($size) {
+  padding-left: $size;
+  padding-right: $size;
+}
+
+@mixin suiContainerGuttersAll($suffix, $size) {
+  &.as--gutter-#{ $suffix } {
+    @include suiContainerGutters($size);
+  }
+
+  &.as--gutter-vertical-#{ $suffix } {
+    @include suiContainerGuttersVertical($size);
+  }
+
+  &.as--gutter-horizontal-#{ $suffix } {
+    @include suiContainerGuttersHorizontal($size);
+  }
+}
+
+@mixin suiContainerModifiers($suffix: '') {
+  // -------------------------
+  //    Size
+  // -------------------------
+  &.as--size-full#{ $suffix } {
+    max-width: 100%;
+  }
+
+  &.as--size-xxs#{ $suffix } {
+    max-width: $sui-breakpoint-xxs;
+  }
+
+  &.as--size-xs#{ $suffix } {
+    max-width: $sui-breakpoint-xs;
+  }
+
+  &.as--size-sm#{ $suffix } {
+    max-width: $sui-breakpoint-sm;
+  }
+
+  &.as--size-md#{ $suffix } {
+    max-width: $sui-breakpoint-md;
+  }
+
+  &.as--size-lg#{ $suffix } {
+    max-width: $sui-breakpoint-lg;
+  }
+
+  &.as--size-xl#{ $suffix } {
+    max-width: $sui-breakpoint-xl;
+  }
+
+  &.as--size-xxl#{ $suffix } {
+    max-width: $sui-breakpoint-xxl;
+  }
+
+  // -------------------------
+  //    Gutters
+  // -------------------------
+  @include suiContainerGuttersAll(none#{ $suffix }, 0);
+  @include suiContainerGuttersAll(xxs#{ $suffix }, $sui-space-xxs);
+  @include suiContainerGuttersAll(xs#{ $suffix }, $sui-space-xs);
+  @include suiContainerGuttersAll(sm#{ $suffix }, $sui-space-sm);
+  @include suiContainerGuttersAll(md#{ $suffix }, $sui-space-md);
+  @include suiContainerGuttersAll(lg#{ $suffix }, $sui-space-lg);
+  @include suiContainerGuttersAll(xl#{ $suffix }, $sui-space-xl);
+  @include suiContainerGuttersAll(xxl#{ $suffix }, $sui-space-xxl);
+}

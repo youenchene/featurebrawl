@@ -1,0 +1,185 @@
+.sui-o-list {
+  display: block;
+
+  & + & {
+    margin-top: $sui-space-xl;
+  }
+
+  &__item {
+    display: flex;
+    align-items: stretch;
+    border-top: $sui-size-border solid $sui-color-border;
+    border-bottom: $sui-size-border solid $sui-color-border;
+    padding: $sui-space-sm $sui-space-md;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    transition: .2s;
+
+    & + & {
+      border-top: none !important;
+    }
+  }
+
+  &__primary {
+    display: flex;
+    margin-right: auto;
+    align-items: center;
+    min-width: 0;
+    flex-basis: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: $sui-space-sm;
+    color: $sui-color-base-medium;
+  }
+
+  &__title {
+    padding-right: $sui-space-lg;
+    min-width: 0;
+
+    @at-root a#{&},
+      a & {
+      color: $sui-color-primary;
+    }
+  }
+
+  &__secondary {
+    font-size: $sui-font-size-ms;
+    min-width: 0;
+    margin: 0 auto;
+    flex-basis: 100%;
+    text-decoration: none;
+    color: $sui-color-text;
+  }
+
+  &__actions {
+    order: 10;
+    margin-left: auto;
+    flex: none;
+    display: flex;
+    align-items: center;
+    transition: .2s;
+
+    & > * {
+      font-size: $sui-font-size-ms;
+    }
+  }
+
+  // -------------------------
+  //    Hover
+  // -------------------------
+  &.as--hover &__item:hover,
+  &.as--hover &__item:focus {
+    background: $sui-color-base-lighter;
+  }
+
+  &.as--hover &__actions {
+    opacity: .4;
+  }
+
+  &.as--hover &__item:hover &__actions,
+  &.as--hover &__item:focus &__actions {
+    opacity: 1;
+  }
+
+  // -------------------------
+  //    Bordered
+  // -------------------------
+  &.as--bordered &__item {
+    border: $sui-size-border solid $sui-color-border;
+
+    &:first-child {
+      border-top-left-radius: $sui-border-radius-md;
+      border-top-right-radius: $sui-border-radius-md;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: $sui-border-radius-md;
+      border-bottom-right-radius: $sui-border-radius-md;
+    }
+  }
+
+  // -------------------------
+  //    Sizes
+  // -------------------------
+
+  // Extra Small
+  &.as--xs &__item {
+    padding: $sui-space-xxs $sui-space-xs;
+  }
+
+  &.as--xs &__icon {
+    margin-right: $sui-space-xs;
+    font-size: $sui-font-size-ms;
+  }
+
+  &.as--xs &__title {
+    padding-right: $sui-space-sm;
+    font-size: $sui-font-size-ms;
+  }
+
+  &.as--xs &__actions > * {
+    font-size: $sui-font-size-sm;
+  }
+
+  // Small
+  &.as--sm &__item {
+    padding: $sui-space-xs $sui-space-sm;
+  }
+
+  // Large
+  &.as--lg &__item {
+    padding: $sui-space-md $sui-space-lg;
+  }
+
+  &.as--lg &__icon {
+    margin-right: $sui-space-md;
+    font-size: $sui-font-size-ml;
+  }
+
+  &.as--lg &__title {
+    font-size: $sui-font-size-ml;
+  }
+
+  // -------------------------
+  //    Active item
+  // -------------------------
+  html body &__item.as--active {
+    color: white;
+    background: $sui-color-primary;
+  }
+
+  html body &.as--bordered &__item.as--active {
+    border-left-color: $sui-color-primary;
+    border-right-color: $sui-color-primary;
+  }
+
+  html body &.as--hover &__item.as--active:hover,
+  html body &.as--hover &__item.as--active:focus {
+    background: darken($sui-color-primary, 5%);
+  }
+
+  html body &__item.as--active &__primary,
+  html body &__item.as--active &__secondary,
+  html body &__item.as--active &__icon,
+  html body &__item.as--active &__title {
+    color: white;
+  }
+
+  html body &__item.as--active &__actions {
+    & > * {
+      color: white;
+
+      &:hover,
+      &:focus {
+        color: white;
+      }
+    }
+  }
+}

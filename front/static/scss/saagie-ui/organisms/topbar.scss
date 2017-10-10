@@ -1,0 +1,40 @@
+.sui-o-topbar {
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $sui-o-topbar-height;
+  box-shadow: $sui-box-shadow;
+  display: flex;
+  align-items: center;
+  background: white;
+
+  &__logo {
+    display: block;
+    padding: 0 $sui-space-md;
+
+    img {
+      width: auto !important;
+      height: $sui-o-topbar-height !important;
+    }
+  }
+
+  &__title {
+    font-weight: 100;
+    font-size: $sui-font-size-ml;
+    padding: 0 $sui-space-md;
+  }
+
+  &__secondary {
+    flex: none;
+    white-space: nowrap;
+    margin-left: auto;
+    text-align: right;
+    min-width: 0;
+  }
+
+  &__avatar {
+    padding: 0 $sui-space-md;
+  }
+}

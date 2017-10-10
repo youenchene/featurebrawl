@@ -1,0 +1,130 @@
+.sui-t-app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__alert {
+    z-index: 6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $sui-t-app-layout-alert-height;
+    text-align: center;
+    color: $sui-color-text;
+    background: $sui-color-base-light;
+    font-family: $sui-font-family-secondary;
+    font-size: $sui-font-size-xs;
+    font-weight: bold;
+    padding: $sui-space-xxs/2 $sui-space-xs;
+    border: $sui-size-border solid rgba(0, 0, 0, .1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    a {
+      color: inherit;
+    }
+
+    &.as--success {
+      color: contrast($sui-color-success);
+      background: $sui-color-success;
+    }
+
+    &.as--warning {
+      color: contrast($sui-color-warning);
+      background: $sui-color-warning;
+    }
+
+    &.as--danger {
+      color: contrast($sui-color-danger);
+      background: $sui-color-danger;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      min-width: 0;
+    }
+  }
+
+  // -------------------------
+  //    Top alignment
+  // -------------------------
+
+  // Only Topbar
+  &.as--with-topbar .sui-o-primary-nav,
+  .sui-o-topbar ~ .sui-o-primary-nav,
+  &.as--with-topbar .sui-o-secondary-nav,
+  .sui-o-topbar ~ .sui-o-secondary-nav,
+  &.as--with-topbar &__alert,
+  .sui-o-topbar ~ &__alert {
+    top: $sui-o-topbar-height;
+  }
+
+  &.as--with-topbar &__content,
+  .sui-o-topbar ~ &__content {
+    margin-top: $sui-o-topbar-height;
+  }
+
+  // Only Alert
+  &.as--with-alert &__content,
+  &__alert ~ &__content {
+    margin-top: $sui-t-app-layout-alert-height;
+  }
+
+  // Both Topbar & Alert
+  &.as--with-topbar.as--with-alert &__content,
+  &.as--with-topbar &__alert ~ &__content,
+  &.as--with-alert .sui-o-topbar ~ &__content,
+  .sui-o-topbar ~ &__alert ~ &__content {
+    margin-top: $sui-o-topbar-height + $sui-t-app-layout-alert-height;
+  }
+
+  // -------------------------
+  //    Left alignment
+  // -------------------------
+
+  // Only Primary Nav
+  &.as--with-primary-nav .sui-o-secondary-nav,
+  .sui-o-primary-nav ~ .sui-o-secondary-nav,
+  &.as--with-primary-nav &__alert,
+  .sui-o-primary-nav ~ &__alert {
+    left: $sui-o-primary-nav-width;
+  }
+
+  &.as--with-primary-nav &__content,
+  .sui-o-primary-nav ~ &__content {
+    margin-left: $sui-o-primary-nav-width;
+  }
+
+  // Only Secondary Nav
+  &.as--with-secondary-nav &__alert,
+  .sui-o-secondary-nav ~ &__alert {
+    left: $sui-o-secondary-nav-width;
+  }
+
+  &.as--with-secondary-nav &__content,
+  .sui-o-secondary-nav ~ &__content {
+    margin-left: $sui-o-secondary-nav-width;
+  }
+
+  // Both Primary & Secondary Nav
+  &.as--with-primary-nav.as--with-secondary-nav &__alert,
+  &.as--with-primary-nav .sui-o-secondary-nav ~ &__alert,
+  &.as--with-secondary-nav .sui-o-primary-nav ~ &__alert,
+  .sui-o-primary-nav ~ .sui-o-secondary-nav ~ &__alert {
+    left: $sui-o-primary-nav-width + $sui-o-secondary-nav-width;
+  }
+
+  &.as--with-primary-nav.as--with-secondary-nav &__content,
+  &.as--with-primary-nav .sui-o-secondary-nav ~ &__content,
+  &.as--with-secondary-nav .sui-o-primary-nav ~ &__content,
+  .sui-o-primary-nav ~ .sui-o-secondary-nav ~ &__content {
+    margin-left: $sui-o-primary-nav-width + $sui-o-secondary-nav-width;
+  }
+}

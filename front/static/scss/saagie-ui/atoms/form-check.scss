@@ -1,0 +1,115 @@
+.sui-a-form-check {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: $sui-space-md;
+
+  &.as--inline {
+    display: inline-flex;
+    margin-right: $sui-space-lg;
+  }
+
+  input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  // -------------------------
+  // Checked
+  // -------------------------
+  input:checked ~ &__indicator {
+    &::before {
+      background: $sui-color-primary;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  // -------------------------
+  // Hover
+  // -------------------------
+  input:not(:checked):not(:disabled):hover ~ &__indicator,
+  input:not(:checked):not(:disabled):focus ~ &__indicator {
+    &::before {
+      box-shadow: inset 0 0 0 $sui-size-border rgba(0, 0, 0, .4);
+    }
+  }
+
+  input:checked:not(:disabled):hover ~ &__indicator,
+  input:checked:not(:disabled):focus ~ &__indicator {
+    &::before {
+      box-shadow: inset 0 0 0 $sui-size-border rgba(0, 0, 0, .8);
+    }
+  }
+
+  // -------------------------
+  // Disabled
+  // -------------------------
+  input:disabled ~ &__indicator::before {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+
+  input:disabled ~ &__label {
+    opacity: .7;
+  }
+
+  // -------------------------
+  // Indicator
+  // -------------------------
+  input[type="radio"] ~ &__indicator::before {
+    border-radius: $sui-border-radius-rounded;
+  }
+
+  &__indicator {
+    cursor: pointer;
+    position: relative;
+    flex: none;
+    font-size: 1.25em;
+    width: 1em;
+    line-height: 1rem;
+    color: white;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: block;
+      width: 1em;
+      height: 1em;
+      border-radius: $sui-border-radius-md;
+      background: $sui-color-base-light;
+      box-shadow: inset 0 0 0 $sui-size-border rgba(0, 0, 0, .05);
+      transition: .2s;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      border: rem(2) solid;
+      border-top: none;
+      border-left: none;
+      margin-left: -.2em;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      transform-origin: bottom right;
+      opacity: 0;
+      transition: .2s;
+      width: .3em;
+      height: .5em;
+    }
+  }
+
+  // -------------------------
+  // Label
+  // -------------------------
+  &__label {
+    min-width: 0;
+    padding-left: 1em;
+  }
+}

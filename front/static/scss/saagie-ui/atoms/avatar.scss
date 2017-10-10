@@ -1,0 +1,55 @@
+.sui-a-avatar {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  height: 0;
+  color: $sui-color-base-medium;
+  background: $sui-color-base-light;
+  border-radius: $sui-border-radius-rounded;
+  border: $sui-size-border solid rgba(0, 0, 0, .1);
+  text-align: center;
+  font-family: $sui-font-family-secondary;
+  font-weight: bold;
+  text-transform: uppercase;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: $sui-border-radius-rounded;
+  }
+
+  // Default size
+  @include suiAvatarSize($sui-size-xs, $sui-font-size-md);
+
+  &.as--lg {
+    @include suiAvatarSize($sui-size-sm, $sui-font-size-lg);
+  }
+
+  &.as--xl {
+    @include suiAvatarSize($sui-size-md, $sui-font-size-xl);
+  }
+
+  &.as--you {
+    border-color: $sui-a-avatar-you-color;
+
+    &::after {
+      content: 'you';
+      text-transform: uppercase;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      line-height: 1;
+      color: white;
+      background: $sui-a-avatar-you-color;
+      font-size: $sui-font-size-xxs;
+      letter-spacing: 0;
+      font-weight: bold;
+      padding: $sui-space-xxs;
+      border-radius: $sui-border-radius-sm;
+      white-space: nowrap;
+    }
+  }
+}

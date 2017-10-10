@@ -1,0 +1,17 @@
+@mixin suiMediaMin($breakpoint) {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin suiMediaMax($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin suiMedia($sui-breakpoint-min, $sui-breakpoint-max) {
+  @media only screen and (min-width: $sui-breakpoint-min) and (max-width: $sui-breakpoint-max) {
+    @content;
+  }
+}

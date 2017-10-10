@@ -1,0 +1,48 @@
+$sui-a-step-indicator-max: 10 !default;
+
+.sui-a-step-indicator {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  font-size: $sui-font-size-md;
+  color: $sui-color-base-light;
+  margin: $sui-space-xs 0 $sui-space-xs -2em;
+
+  &__step {
+    position: relative;
+    flex: none;
+    display: block;
+    width: .75em;
+    height: .75em;
+    border-radius: $sui-border-radius-rounded;
+    background: transparent;
+    border: .1em solid;
+    margin-left: 2em - .1em;
+
+    & + &::before {
+      content: '';
+      width: 2em;
+      height: .1em;
+      margin-top: 50%;
+      transform: translateY(-50%);
+      background: currentColor;
+      position: absolute;
+      top: 0;
+      right: 100%;
+    }
+  }
+
+  // -------------------------
+  // Active step
+  // -------------------------
+  @for $i from 1 through $sui-a-step-indicator-max {
+    &.as--step-#{$i} &__step:nth-child(-n+#{$i}) {
+      color: $sui-color-primary;
+    }
+
+    &.as--step-#{$i} &__step:nth-child(#{$i}) {
+      background: currentColor;
+    }
+  }
+}

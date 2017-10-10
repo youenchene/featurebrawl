@@ -1,0 +1,51 @@
+.sui-a-thumbnail {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: $sui-border-radius-md;
+  font-size: $sui-font-size-sm;
+  line-height: 1;
+  color: $sui-color-text-light;
+  text-align: center;
+  background: $sui-color-base-lighter;
+  box-shadow: inset 0 0 0 $sui-size-border rgba(0, 0, 0, .05);
+
+  @include suiThumbnailSize($sui-size-md);
+
+  img {
+    z-index: 2;
+    position: relative;
+    background: $sui-color-base-lighter;
+  }
+
+  &.as--xxs {
+    @include suiThumbnailSize($sui-size-xxs);
+  }
+
+  &.as--xs {
+    @include suiThumbnailSize($sui-size-xs);
+  }
+
+  &.as--sm {
+    @include suiThumbnailSize($sui-size-sm);
+  }
+
+  &.as--lg {
+    @include suiThumbnailSize($sui-size-lg);
+  }
+
+  &.as--xl {
+    @include suiThumbnailSize($sui-size-xl);
+  }
+
+  &.as--xxl {
+    @include suiThumbnailSize($sui-size-xxl);
+  }
+
+  &.as--init-loader {
+    @include suiLoader();
+  }
+}

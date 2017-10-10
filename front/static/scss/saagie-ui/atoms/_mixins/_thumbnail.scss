@@ -1,0 +1,34 @@
+@mixin suiThumbnailSize ($width) {
+  width: $width;
+  height: $width;
+
+  &.as--ratio-square {
+    width: $width;
+    height: $width;
+  }
+
+  &.as--ratio-4_3 {
+    width: $width;
+    height: $width * .75;
+  }
+
+  &.as--ratio-16_9 {
+    width: $width;
+    height: $width * .5625;
+  }
+
+  &.as--ratio-2_1 {
+    width: $width;
+    height: $width * .5;
+  }
+
+  &.as--ratio-1_2 {
+    width: $width * .5;
+    height: $width;
+  }
+
+  &.as--ratio-3_4 {
+    width: $width * .75;
+    height: $width;
+  }
+}

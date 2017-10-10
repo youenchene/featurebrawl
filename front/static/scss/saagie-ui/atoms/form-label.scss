@@ -1,0 +1,25 @@
+.sui-a-form-label {
+  display: block;
+  width: 100%;
+  font-size: $sui-font-size-sm;
+  color: $sui-color-text;
+  font-weight: bold;
+
+  &.as--inline {
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &.as--sm {
+    font-size: $sui-font-size-xs;
+  }
+
+  &.as--lg {
+    font-size: $sui-font-size-md;
+  }
+
+  &.as--uppercase {
+    text-transform: uppercase;
+  }
+}

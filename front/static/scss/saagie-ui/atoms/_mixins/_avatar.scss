@@ -1,0 +1,6 @@
+@mixin suiAvatarSize ($size, $font-size) {
+  font-size: $font-size;
+  width: $size;
+  padding-bottom: $size - $sui-size-border * 2;
+  line-height: $size - $sui-size-border * 2;
+}

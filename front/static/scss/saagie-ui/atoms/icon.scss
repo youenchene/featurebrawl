@@ -1,0 +1,67 @@
+.sui-a-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  fill: currentColor;
+  width: 1em;
+  line-height: inherit;
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  font-family: FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:not(.as--svg-color) * {
+    fill: currentColor !important;
+  }
+
+  &::after {
+    content: '\00a0'; // Fix: Align icon with text
+  }
+
+  &::before,
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 1em;
+    width: 1em;
+    line-height: 1em;
+  }
+
+  svg {
+    width: 1.2em !important;
+    height: 1.2em;
+  }
+
+  @include suiIconSize(1.1em);
+
+  &.as--sm {
+    @include suiIconSize(.8em);
+  }
+
+  &.as--lg {
+    @include suiIconSize(1.6em);
+  }
+
+  &.as--xl {
+    @include suiIconSize(2em);
+  }
+
+  &.as--start {
+    margin-right: .5em;
+  }
+
+  &.as--between {
+    margin-left: .4em;
+    margin-right: .4em;
+  }
+
+  &.as--end {
+    margin-left: .5em;
+  }
+}

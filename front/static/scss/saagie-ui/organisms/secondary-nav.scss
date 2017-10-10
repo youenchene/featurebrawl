@@ -1,0 +1,199 @@
+.sui-o-secondary-nav {
+  flex: none;
+  z-index: 7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: $sui-o-secondary-nav-width;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: white;
+  background: $sui-color-base-dark;
+  padding: $sui-space-lg;
+
+  // -------------------------
+  //    Header
+  // -------------------------
+  &__category {
+    font-size: $sui-font-size-sm;
+    color: $sui-color-base-medium-light;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: $sui-font-size-ml;
+    font-weight: 300;
+  }
+
+  &__description {
+    color: $sui-color-base-medium-light;
+    font-size: $sui-font-size-ms;
+    font-family: $sui-font-family-secondary;
+    max-height: $sui-font-size-ms * $sui-line-height * 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    // Multi line ellipsis (webkit only)
+    display: -webkit-box;  // needed for the effect to cut off
+    -webkit-line-clamp: 2;  // line to cut off
+    -webkit-box-orient: vertical;
+  }
+
+  &__description-more {
+    color: white;
+    font-weight: bold;
+    font-family: $sui-font-family-secondary;
+    font-size: $sui-font-size-sm;
+  }
+
+  // -------------------------
+  //    Content
+  // -------------------------
+  &__header + &__content {
+    position: relative;
+    margin-top: $sui-space-md;
+    padding-top: $sui-space-md;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30%;
+      height: $sui-size-border;
+      background: $sui-color-base-darker;
+    }
+  }
+
+  &__group {
+    & + & {
+      margin-top: $sui-space-md;
+    }
+
+    &.as--active &-link {
+      &::before,
+      &::after {
+        color: white;
+      }
+    }
+
+    &-title {
+      margin-bottom: $sui-space-xs;
+    }
+
+    &-links {
+      padding-left: $sui-space-sm;
+    }
+
+    &-link {
+      position: relative;
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      font-size: $sui-font-size-ms;
+      line-height: 1;
+      padding: $sui-space-xxs/2 0 $sui-space-xxs/2 $sui-space-md;
+
+      span {
+        position: relative;
+        display: inline-block;
+        padding: $sui-space-xxs;
+        border-radius: $sui-border-radius-sm;
+        transition: .2s;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 100%;
+          width: $sui-space-md;
+          margin-top: rem(-1);
+          height: rem(2);
+          background: transparent;
+          transition: .2s;
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: rem(2);
+        background: currentColor;
+        transition: .2s;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: rem(1);
+        transform: translate(-50%, -50%);
+        width: rem(12);
+        height: rem(12);
+        border-radius: $sui-border-radius-rounded;
+        border: rem(2) solid;
+        background: $sui-color-base-dark;
+        transition: .2s;
+      }
+
+      &::before,
+      &::after {
+        color: $sui-color-base-medium;
+      }
+
+      &:first-child::before {
+        border-top-left-radius: $sui-border-radius-md;
+        border-top-right-radius: $sui-border-radius-md;
+      }
+
+      &:last-child::before {
+        border-top-left-radius: $sui-border-radius-md;
+        border-top-right-radius: $sui-border-radius-md;
+      }
+
+      // -------------------------
+      //    Link hover
+      // -------------------------
+      &:hover,
+      &:focus {
+        span {
+          background: $sui-color-base-darker;
+
+          &::before {
+            background: $sui-color-base-darker;
+          }
+        }
+
+        &::after {
+          color: white;
+          background: white;
+        }
+      }
+
+      // -------------------------
+      //    Link active
+      // -------------------------
+      &.as--active {
+        span {
+          background: white;
+          color: $sui-color-text;
+
+          &::before {
+            background: white;
+          }
+        }
+
+        &::after {
+          color: white;
+          background: white;
+        }
+      }
+    }
+  }
+}

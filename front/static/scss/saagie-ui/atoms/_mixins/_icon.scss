@@ -1,0 +1,10 @@
+@mixin suiIconSize($size: 1em) {
+  & {
+    width: $size;
+  }
+
+  &::before,
+  svg {
+    font-size: $size;
+  }
+}

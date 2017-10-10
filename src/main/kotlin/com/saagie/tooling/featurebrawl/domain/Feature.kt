@@ -1,4 +1,4 @@
-package  com.saagie.tooling.featurebrawl.model
+package  com.saagie.tooling.featurebrawl.domain
 
 data class Feature(val id: String ="",
                    val name: String ="New Feature",
@@ -7,11 +7,5 @@ data class Feature(val id: String ="",
                    val themes:List<String> = emptyList(),
                    val customers:List<String> = emptyList(),
                    val score:Int = votes.fold(0) { sum:Int, element -> element.note + sum}) {
-
-
-    fun vote(featureId:String,vote:Int):Boolean {
-        //
-        return false
-    }
 
 }

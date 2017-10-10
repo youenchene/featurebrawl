@@ -1,0 +1,18 @@
+// -------------------------
+//    Mixins imports
+// -------------------------
+
+@import "app.mixins";
+
+// -------------------------
+//    Saagie UI components
+// -------------------------
+
+@import "saagie-ui/saagie-ui.components";
+
+// -------------------------
+//    App components
+// -------------------------
+
+/* Add your components here */
+@import "app/pages/example";
